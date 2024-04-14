@@ -87,6 +87,14 @@ int processFlight(char* filename, struct flightData* flightArray, int* totalcoun
 	return 0;
 }
 
+//
+// FUNCTION : displayLeastFareDetails
+// DESCRIPTION : Itterates through all of the flights, compares their values
+//				 and prints the flight with the lowest fairs.
+// PARAMETERS : struct flightData* flightArray : pointer to the structure with flight information
+//              int numberOfFlights : a number of how many flights where found in the files
+// RETURNS : int 0: In case of successfull run of the function
+//
 int displayLeastFareDetails(struct flightData* flightArray, int numberOfFlights) {
 
 	return 0;
