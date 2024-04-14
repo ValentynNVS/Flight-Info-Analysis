@@ -48,6 +48,15 @@ int main(int* argc, char *argv[]) {
 	char* pFileName = fileName;
 }
 
+//
+// FUNCTION : processFlight
+// DESCRIPTION : This function gets the line from the file, pass it to
+//				 the parsing function and prints accordings errors
+//				 based on the return.
+// PARAMETERS : int array[] : An array to store the integers entered by the user.
+//              int numberOfElements : The number of elements in the array, indicating the size of the array.
+// RETURNS : int 1 : In case of successfull function run
+//
 int processFlight(char* filename, struct flightData* flightArray, int* totalcount) {
 	FILE* filePointer = NULL;
 	filePointer = fopen(filename, "r");
