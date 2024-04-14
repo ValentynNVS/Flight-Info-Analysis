@@ -49,7 +49,41 @@ int main(int* argc, char *argv[]) {
 }
 
 int processFlight(char* filename, struct flightData* flightArray, int* totalcount) {
+	FILE* filePointer = NULL;
+	filePointer = fopen(filename, "r");
+	if (filePointer == NULL) {
+		printf("Error reading or opening the %s\n", filename);
+		return 0;
+	}
+	int index = *totalcount;
+	char line[kCharMaxLenghts];
+	/*Gets the whole line, pass it to the parseLine function
+	and pass the pointers to the elements of a struct where the info would be stored*/
+	while (fgets(line, kCharMaxLenghts, filePointer) != NULL && index < kCharMaxLenghts) {
 
+		line[strcspn(line, "\n")] = '\0';
+		int parseResult = parseLine(flightArray[index].from, flightArray[index].destination, &flightArray[index].price, line);
+		if (parseResult != 1 && parseResult != -3) {
+			printf("Error processing file %s line: %s\n", filename, line);
+			if (parseResult == -3) {
+				continue;
+			}
+			else if (parseResult == -2) {
+				printf("Missing dash in %s\n", line);
+			}
+			else if (parseResult == -1) {
+				printf("Missing comma in %s\n", line);
+			}
+		}
+		else if (parseResult == 1) {
+			strcpy(flightArray[index].fileNameStorage, filename);
+		}
+		index++;
+	}
+	fclose(filePointer);
+	*totalcount = index;
+
+	return 1;
 	return 0;
 }
 
