@@ -101,6 +101,20 @@ int displayLeastFareDetails(struct flightData* flightArray, int numberOfFlights)
 
 }
 
+//
+// FUNCTION : parseLine
+// DESCRIPTION : This function checks if the flight infromation is correctly written.
+//				 It stores the values of the flight inside the struct if they are
+//				 correctly written. If not - returns a negative int value.
+// PARAMETERS : char* sourceVaribale : pointer to the source variable inside the struct
+//				char* destinVariable : pointer to the destination variable inside the struct
+//				int* fareVariable : pointer to the price variable inside the struct
+//				char* lineData : pointer to a variable where the whole line where stored
+// RETURNS : int 1 : In case of successfull parsing the lines
+//			 int -3 : If the line is empty
+//			 int -2 : If the line is missing dash
+//			 int -1 : If the line is missing comma
+//
 int parseLine(char* sourceVaribale, char* destinVariable, int* fareVariable, char* lineData) {
 
 	return 0;
