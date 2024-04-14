@@ -121,6 +121,15 @@ int parseLine(char* sourceVaribale, char* destinVariable, int* fareVariable, cha
 
 }
 
+
+//
+// FUNCTION : removeExtension
+// DESCRIPTION : Function to take off any extension from the filename
+//				 for proper display of information
+// PARAMETERS : char* filename: pointer to the element inside the array of struct
+//								where the filaname is stored
+// RETURNS : void
+//
 void removeExtension(char* filename) {
 
 	
