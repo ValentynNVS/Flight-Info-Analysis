@@ -169,8 +169,18 @@ int parseLine(char* sourceVaribale, char* destinVariable, int* fareVariable, cha
 		return -1;
 	}
 
-	return 0;
+	/* copy the source from lineData to sourceVaribale.*/
+	strncpy(sourceVaribale, lineData, dash);
+	sourceVaribale[dash] = '\0';
 
+	/*copy the destination (text between the dash and comma) from lineData to destinVariable.*/
+	strncpy(destinVariable, lineData + dash + 2, comma - (dash + 2));
+	destinVariable[comma - (dash + 2)] = '\0';
+
+	/*this is used to convert string to int and skip comma and -*/
+	*fareVariable = atoi(lineData + comma + 1);
+
+	return 1;
 }
 
 
