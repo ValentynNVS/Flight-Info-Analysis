@@ -93,7 +93,6 @@ int processFlight(char* filename, struct flightData* flightArray, int* totalcoun
 	*totalcount = index;
 
 	return 1;
-	return 0;
 }
 
 //
@@ -105,6 +104,28 @@ int processFlight(char* filename, struct flightData* flightArray, int* totalcoun
 // RETURNS : int 0: In case of successfull run of the function
 //
 int displayLeastFareDetails(struct flightData* flightArray, int numberOfFlights) {
+
+	/*The loop takes flight information one-by-one and then compares it it all
+	other flights information. Then it displays the flight if there was
+	no similar flight. Or it displays the flight with the least price
+	if there were 2 same flight.*/
+	for (int i = 0; i < numberOfFlights; i++) {
+		int currentPrice = flightArray[i].price;
+		int isLowestFare = 1;
+
+		for (int j = 0; j < numberOfFlights; j++) {
+			if (i == j) {
+				continue;
+			}
+			if (strcmp(flightArray[i].from, flightArray[j].from) == 0 &&
+				strcmp(flightArray[i].destination, flightArray[j].destination) == 0) {
+				/*if there is another exact flight with lower cost it will set flag to 0*/
+				if (flightArray[j].price < currentPrice) {
+					isLowestFare = 0;
+					break;
+				}
+			}
+		}
 
 	return 0;
 
