@@ -126,7 +126,14 @@ int displayLeastFareDetails(struct flightData* flightArray, int numberOfFlights)
 				}
 			}
 		}
+		if (isLowestFare) {
+			removeExtension(flightArray[i].fileNameStorage);
+			if ((flightArray[i].price != 0) && (strlen(flightArray[i].from) != 0) && strlen(flightArray[i].destination) != 0) {
+				printf("%s : %s to %s, fare $%d \n", flightArray[i].fileNameStorage, flightArray[i].from, flightArray[i].destination, flightArray[i].price);
+			}
 
+		}
+	}
 	return 0;
 
 }
