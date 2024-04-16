@@ -154,6 +154,21 @@ int displayLeastFareDetails(struct flightData* flightArray, int numberOfFlights)
 //
 int parseLine(char* sourceVaribale, char* destinVariable, int* fareVariable, char* lineData) {
 
+	if (strlen(lineData) == 0) {
+		return -3;
+	}
+
+	/*this code check if there is a - and , in the proper places*/
+	size_t dash = strcspn(lineData, "-");
+	size_t comma = strcspn(lineData, ",");
+
+	if (dash >= strlen(lineData)) {
+		return -2;
+	}
+	else if (comma >= strlen(lineData) || comma <= dash + 2) {
+		return -1;
+	}
+
 	return 0;
 
 }
