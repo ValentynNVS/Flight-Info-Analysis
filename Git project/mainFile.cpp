@@ -194,6 +194,11 @@ int parseLine(char* sourceVaribale, char* destinVariable, int* fareVariable, cha
 //
 void removeExtension(char* filename) {
 
-	
+	/*finds the position of the .*/
+	char* dot = strrchr(filename, '.');
+
+	if (dot != NULL) {
+		*dot = '\0';
+	}
 
 }
