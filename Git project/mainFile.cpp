@@ -55,7 +55,8 @@ and pass it to the proccessflight fucntion along with struct with an array of st
 			printf("Error processing file: %s\n", fileName);
 		}
 	}
-
+	fclose(filePointer);
+	displayLeastFareDetails(flightInfos, totalLinesRead);
 }
 
 //
