@@ -46,6 +46,16 @@ int main(int argc, char *argv[]) {
 	int totalLinesRead = 0;
 
 	char* pFileName = fileName;
+
+	/*This part of code gets a line from the file, takes off the new line charachter,
+and pass it to the proccessflight fucntion along with struct with an array of struct*/
+	while (fgets(fileName, kCharMaxLenghts, filePointer) != NULL) {
+		pFileName[strcspn(pFileName, "\n")] = 0;
+		if (!processFlight(pFileName, flightInfos, &totalLinesRead)) {
+			printf("Error processing file: %s\n", fileName);
+		}
+	}
+
 }
 
 //

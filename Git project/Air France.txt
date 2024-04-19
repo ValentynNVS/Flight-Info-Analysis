@@ -1,0 +1,5 @@
+Rome - Berlin, 850
+Beijing - Shanghai, 700
+Dubai - London, 1100
+Kyiv - Paris, 700
+Tokyo - Sydney, 1050
