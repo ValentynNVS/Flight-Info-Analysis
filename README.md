@@ -1,1 +1,1 @@
-# Git project
+# Program for flight information analysis
